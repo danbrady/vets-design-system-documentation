@@ -6,7 +6,7 @@ tags: logos, logo, brand, branding
 
 # Logos
 
-Using custom logos for VA departments, offices, teams, sub-groups, special programs, initiatives, or events is not supported on VA.gov. This practice aligns with the requirements in the [VA Graphic Standards](https://www.va.gov/vapubs/viewPublication.asp?Pub_ID=683&FType=2) and the [Web Governance site](https://www.va.gov/web/standards/templates.cfm). 
+Using custom logos for VA departments, offices, teams, sub-groups, special programs, initiatives, or events is not supported on VA.gov. This practice aligns with the requirements in the [VA Graphic Standards](https://www.va.gov/vapubs/viewPublication.asp?Pub_ID=683&FType=2) and the [Web Governance site](https://digital.va.gov/web-governance/). 
 
 In user research, Veterans told us that VA’s multiple brands are confusing and complicated to understand. By being consistent with our visual branding, we can reduce Veteran confusion from “logo clutter.”
 
