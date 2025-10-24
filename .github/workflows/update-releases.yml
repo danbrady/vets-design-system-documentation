@@ -21,12 +21,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Sanitize and create tag
+        run: |
+          RAW_TAG="${{ github.event.inputs.tag }}"
+          SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-')
+          echo "Sanitized tag: $SAFE_TAG"
+
       - name: Create tagged release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="${{ github.event.inputs.tag }}"
-          gh release create "$TAG" --title "$TAG" --notes "Automated release"
+          gh release create "$SAFE_TAG" --title "$RAW_TAG" --notes "Automated release"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
