@@ -16,6 +16,11 @@ jobs:
       pull-requests: write
 
     steps:
+      - name: Create tagged release
+        run: |
+          TAG="${{ github.event.inputs.tag }}"
+          gh release create "$TAG" --title "$TAG" --notes "Automated release"
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
