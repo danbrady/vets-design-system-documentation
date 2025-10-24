@@ -24,7 +24,7 @@ jobs:
       - name: Sanitize tag name
         run: |
           RAW_TAG="${{ github.event.inputs.tag_name }}"
-          SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-')
+          SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-' | sed 's/^-*|-*$//g')
           echo "RAW_TAG=$RAW_TAG" >> $GITHUB_ENV
           echo "SAFE_TAG=$SAFE_TAG" >> $GITHUB_ENV
           echo "Sanitized tag: $SAFE_TAG"
