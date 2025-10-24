@@ -2,6 +2,11 @@ name: Update Releases
 
 on:
   workflow_dispatch: # Allow manual triggering
+    inputs:
+      tag:
+        description: "Tag name for release, ex. Sprint 10"
+        required: true
+        default: ""
 
 jobs:
   update-releases:
@@ -49,7 +54,7 @@ jobs:
 
       - name: Create PR with updates
         if: steps.check-changes.outputs.has-changes == 'true'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: 'chore: update releases data'
           title: 'chore: update releases'
