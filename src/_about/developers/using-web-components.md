@@ -47,18 +47,6 @@ The Design System Team has specific linting and migration rules in place to help
 
 If our components do not meet your needs, we would love to hear about it. Reach out to us in Slack at #platform-design-system or [submit a bug report](https://github.com/department-of-veterans-affairs/vets-design-system-documentation/issues/new/choose). And if you are interested in contributing to the Design System, review [how to contribute a new component to the design system]({{ site.baseurl }}/about/developers/contributing).
 
-## USWDS V1 to V3 migration
-
-The current version of the Design System is compatible with the US Web Design System (USWDS) version 1. To use components compatible with version 3 of the USWDS, add a `uswds` flag to the component, as in this example:
-
-```html
-<va-gizmo uswds>
-```
-
-To check if the component you want to use has a v3 version, go to the [VA Design System's Storybook](https://design.va.gov/storybook/?path=/docs/uswds-va-additional-info--default) site and look under the "USWDS" section. Here you will find a list of available components as well as implementation details and examples.
-
-To migrate, if the `uswds` prop has been set to false, explicitly set it to true. **Run all of your application test suites and address any tests that break due to migration.**
-
 ## Vanilla JavaScript applications
 
 If a Design System web component will be used without the need for passing in a function, object, array, or custom event, you are ready to use it without any additional imports.
@@ -79,7 +67,7 @@ If either of these are true, we would recommend using the React binding for ease
 - You must pass in a function, object or array to a web component's properties
 - You must use custom events
 
-If you are not sure if you need either of those features, refer to the web component's [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--page) to review its events and properties.
+If you are not sure if you need either of those features, refer to the web component's [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--docs) to review its events and properties.
 
 **Importing a React binding of a web component**
 
@@ -148,7 +136,7 @@ If the Web Component has a custom event that you need to use and you're **not** 
   const element = document.querySelector('va-example-component');
   const exampleCallback = event => { console.log(event.detail) }
   element.addEventListener('vaChange', exampleCallback)
-<script>
+</script>
 
 <va-example-component>
 ```
@@ -156,7 +144,7 @@ If the Web Component has a custom event that you need to use and you're **not** 
 
 The majority of our web components also fire a `component-library-analytics` event used to send component library interactions into analytics data layer events. The [handler for the Google Analytics event](https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/site-wide/component-library-analytics-setup.js) exists in vets-website.
 
-For more information about custom events for specific components, refer to the [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--page).
+For more information about custom events for specific components, refer to the [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--docs).
 
 ## Native Events
 
@@ -202,4 +190,4 @@ Another example using the `blur` event in vanilla JavaScript:
 
 <hr>
 
-For more information about native events in a specific component, refer to the [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--page).
+For more information about native events in a specific component, refer to the [Storybook documentation](https://design.va.gov/storybook/?path=/docs/about-introduction--docs).

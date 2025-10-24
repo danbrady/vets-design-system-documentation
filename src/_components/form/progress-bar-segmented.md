@@ -6,10 +6,12 @@ title: "Progress bar - Segmented"
 intro-text: "A segmented progress bar updates users on their progress through a multi-step process."
 aka: Step indicator
 research-title: Progress bars
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1383%3A97673&mode=design&t=h9BoxMWwcHe2DhUd-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1383%3A97673&mode=design&t=h9BoxMWwcHe2DhUd-1
 status: use-deployed
 uswds-v3: default
 web-component: va-segmented-progress-bar
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -21,41 +23,49 @@ anchors:
 
 ### Default
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--default" link_text="va-segmented-progress-bar v3 default" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--default" link_text="va-segmented-progress-bar v3 default" height="145px" auto_resize=false %}
 
 ### Step Labels
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--step-labels" link_text="va-segmented-progress-bar step labels" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--step-labels" link_text="va-segmented-progress-bar step labels" height="170px" auto_resize=false %}
 
 ### Centered Step Labels
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-step-labels" link_text="va-segmented-progress-bar vcentered step labels" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-step-labels" link_text="va-segmented-progress-bar vcentered step labels" height="170px" auto_resize=false %}
 
 ### Counters
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--counters" link_text="va-segmented-progress-bar counters" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--counters" link_text="va-segmented-progress-bar counters" height="205px" auto_resize=false %}
 
 ### Small Counters
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--small-counters" link_text="va-segmented-progress-bar small counters" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--small-counters" link_text="va-segmented-progress-bar small counters" height="190px" auto_resize=false %}
 
 ### Centered Counters
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-counters" link_text="va-segmented-progress-bar centered counters" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-counters" link_text="va-segmented-progress-bar centered counters" height="205px" auto_resize=false %}
 
 ### Centered Small Counters
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-small-counters" link_text="va-segmented-progress-bar centered small counters" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--centered-small-counters" link_text="va-segmented-progress-bar centered small counters" height="190px" auto_resize=false %}
 
 ### Custom Header Level
 
-{% include storybook-preview.html story="uswds-va-segmented-progress-bar--custom-header-level" link_text="va-segmented-progress-bar custom header level" height="200px" %}
+{% include storybook-preview.html story="uswds-va-segmented-progress-bar--custom-header-level" link_text="va-segmented-progress-bar custom header level" height="190px" auto_resize=false %}
 
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/step-indicator/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/step-indicator/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional guidance for VA
+
+The segmented progress bar is primarily used in multi-step form flows to show users their progress through the application process.
+
+For additional guidance on using progress bars in form flows, see [Form templates]({{ site.baseurl }}/templates/forms/) and [Form accessibility guidelines]({{ site.baseurl }}/templates/forms/accessibility-guidelines).
 
 ### When to consider something else
 
@@ -71,7 +81,11 @@ anchors:
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/alert/#accessibility-alert">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/step-indicator/#accessibility-guidance"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
 
 ## Related
 

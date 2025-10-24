@@ -2,9 +2,11 @@
 layout: component
 sub_section: Back to top
 title: "Back to top"
-status: use-deployed
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=1110%3A4128&mode=design&t=vNilCSI60pQBiKkM-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=1110%3A4128&mode=design&t=vNilCSI60pQBiKkM-1
 intro-text: "The Back to top component is a shortcut that allows the user to quickly navigate to the top of a long page of content."
+web-component: va-back-to-top
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -16,7 +18,7 @@ anchors:
 
 ### Desktop
 
-{% include storybook-preview.html height="300px" story="components-va-back-to-top--default" link_text="va-back-to-top" %}
+{% include storybook-preview.html height="300px" story="components-va-back-to-top--default" link_text="va-back-to-top" auto_resize=false %}
 
 ## Usage
 

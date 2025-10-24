@@ -17,10 +17,16 @@ intro-text: "Patterns are solutions and researched best practices for solving us
 
 All of the patterns in this section show or cite examples from VA.gov and were researched, designed, developed, and tested by teams creating applications on our platform.
 
+For guidance on implementing patterns in multi-step form flows, see [Form templates]({{ site.baseurl }}/templates/forms/) and [Form accessibility guidelines]({{ site.baseurl }}/templates/forms/accessibility-guidelines).
+
 {% include components-patterns-templates.md %}
 
 ## Create or update a pattern
 
 If you have a new pattern, or an update to an existing pattern, consider contributing back to the design system. Reach out to the Design System Team if you have questions.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/about/contributing-to-the-design-system">Create or update a pattern</a>
+<va-link-action
+  href="{{ site.baseurl }}/about/contributing-to-the-design-system"
+  text="Create or update a pattern"
+  type="secondary"
+></va-link-action>

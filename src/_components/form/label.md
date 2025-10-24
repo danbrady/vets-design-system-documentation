@@ -4,7 +4,10 @@ permalink: /components/form/label
 has-parent: /components/form/
 title: Label
 intro-text: Labels associate a descriptive title with each form input used to collect information from the user.
-status: use-deployed
+github-title: va-text-input
+status: use-best-practice
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -13,7 +16,7 @@ anchors:
 
 ## Examples
 
-Examples shown here use the [va-text-input component]({{ site.baseurl }}/components/forms/text-input) to demonstrate form labels. Labels are used consistently across standard form components.
+Examples shown here use the [va-text-input component]({{ site.baseurl }}/components/form/text-input) to demonstrate form labels. Labels are used consistently across standard form components.
 
 ### Default
 

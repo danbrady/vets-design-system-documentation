@@ -2,7 +2,7 @@
 layout: component
 title: Telephone
 status: use-best-practice
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1296%3A9773&mode=design&t=nYOotVcwdpiMCL5C-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1296%3A9773&mode=design&t=nYOotVcwdpiMCL5C-1
 intro-text: "The telephone component captures the many variations of phone numbers displayed on VA.gov." 
 anchors:
   - anchor: Examples
@@ -11,6 +11,8 @@ anchors:
   - anchor: Content considerations
   - anchor: Accessibility considerations
 web-component: va-telephone
+web: true
+mobile-app: true
 ---
 
 ## Examples
@@ -74,7 +76,7 @@ web-component: va-telephone
 ### Choosing between variations
 
 * If the phone number should have an `extension`, be `non-clickable`, or represent an `international` number, additional props can be added to accommodate.
-* For TTY numbers, pass the `tty` boolean prop to have appropriate indicators in the link text and the `aria-label`.
+* For TTY numbers, pass the `tty` boolean prop to have appropriate indicators in the link text.
 * For text messages, pass the `sms` boolean prop to have the link trigger a SMS text message instead of placing a phone call. This will open the default program on the computer or device for sending messages.
 
 ### Placement
@@ -89,5 +91,4 @@ web-component: va-telephone
 
 ## Accessibility considerations
 
-* By default an `aria-label` will be created based off of the context entered into the component and will be formatted as a combined phone number with parts within the label separated by periods, e.g. "800-555-1212" becomes "8 0 0. 5 5 5. 1 2 1 2"
-* If the `non-clickable` prop is enabled `aria-hidden="true"` will be added to the span element containing the  number and a `sr-only` CSS class will be added to the span element displaying the number in the `aria-label` format as shown above.
+* Teams should not add aria labels on phone numbers or TTY. If you have questions, contact the Accessibility Design Experience (ADE) Team.

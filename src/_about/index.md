@@ -1,22 +1,40 @@
 ---
-layout: documentation
+layout: default
 index: true
 title: Getting started with design.va.gov
 intro-text: This site provides design guidelines and code to help you quickly create trustworthy, accessible, and consistent digital services on the VA.gov platform. Its primary audience includes content writers, designers, and front-end developers who work on VA.gov.
 ---
 
+# {{ page.title }}
+
+<div class="va-introtext" markdown="1">
+  {{ page.intro-text }}
+</div>
+
 ## Guides by audience
 
-<div class="vads-l-grid-container vads-u-margin-bottom--2">
-  <div class="vads-l-row">
-    <div class="vads-l-col--12 medium-screen:vads-l-col--4">
-      <a class="vads-c-action-link--blue" href="{{ site.baseurl }}/about/content-writers">Content writers</a>
+<div class="vads-grid-container vads-u-margin-bottom--2">
+  <div class="vads-grid-row">
+    <div class="vads-grid-col-12 tablet:vads-grid-col-4">
+      <va-link-action
+        href="{{ site.baseurl }}/about/content-writers"
+        text="Content writers"
+        type="secondary"
+      ></va-link-action>
     </div>
-    <div class="vads-l-col--12 medium-screen:vads-l-col--4">
-      <a class="vads-c-action-link--blue" href="{{ site.baseurl }}/about/designers">Designers</a>
+    <div class="vads-grid-col-12 tablet:vads-grid-col-4">
+      <va-link-action
+        href="{{ site.baseurl }}/about/designers"
+        text="Designers"
+        type="secondary"
+      ></va-link-action>
     </div>
-    <div class="vads-l-col--12 medium-screen:vads-l-col--4">
-      <a class="vads-c-action-link--blue" href="{{ site.baseurl }}/about/developers">Developers</a>
+    <div class="vads-grid-col-12 tablet:vads-grid-col-4">
+      <va-link-action
+        href="{{ site.baseurl }}/about/developers"
+        text="Developers"
+        type="secondary"
+      ></va-link-action>
     </div>
   </div>
 </div>
@@ -39,8 +57,10 @@ The Design System supports older and newer browsers through progressive enhancem
 
 <div class="site-showcase">
   <div class="vads-u-display--flex site-showcase__col vads-u-align-items--center">
-    <div class="vads-u-padding-right--5 vads-u-color--orange">
-      <i class="fab fa-firefox vads-u-font-size--2xl"></i>
+    <div class="vads-u-padding-right--5 vads-color--orange">
+      <svg class="usa-icon site-showcase__browser-icon firefox" aria-hidden="true" focusable="false" role="img">
+        <use href="{{ site.baseurl }}/assets/img/browser-logos.svg#firefox"></use>
+      </svg>
     </div>
     <div class="vads-u-font-weight--bold">
       Latest versions of Firefox
@@ -49,7 +69,9 @@ The Design System supports older and newer browsers through progressive enhancem
 
   <div class="vads-u-display--flex site-showcase__col vads-u-align-items--center">
     <div class="vads-u-padding-right--5 vads-u-color--gold">
-      <i class="fab fa-chrome vads-u-font-size--2xl"></i>
+      <svg class="usa-icon site-showcase__browser-icon chrome" aria-hidden="true" focusable="false" role="img">
+        <use href="{{ site.baseurl }}/assets/img/browser-logos.svg#chrome"></use>
+      </svg>
     </div>
     <div class="vads-u-font-weight--bold">
       Latest versions of Google Chrome
@@ -58,7 +80,9 @@ The Design System supports older and newer browsers through progressive enhancem
 
   <div class="vads-u-display--flex site-showcase__col vads-u-align-items--center">
     <div class="vads-u-padding-right--5 vads-u-color--cool-blue-light ">
-      <i class="fab fa-edge vads-u-font-size--2xl"></i>
+      <svg class="usa-icon site-showcase__browser-icon edge" aria-hidden="true" focusable="false" role="img">
+        <use href="{{ site.baseurl }}/assets/img/browser-logos.svg#edge"></use>
+      </svg>
     </div>
     <div class="vads-u-font-weight--bold">
       Latest versions of Microsoft Edge
@@ -67,7 +91,9 @@ The Design System supports older and newer browsers through progressive enhancem
 
   <div class="vads-u-display--flex site-showcase__col vads-u-align-items--center">
     <div class="vads-u-padding-right--5 vads-u-color--primary-alt-dark">
-      <i class="fab fa-safari vads-u-font-size--2xl"></i>
+      <svg class="usa-icon site-showcase__browser-icon safari" aria-hidden="true" focusable="false" role="img">
+        <use href="{{ site.baseurl }}/assets/img/browser-logos.svg#safari"></use>
+      </svg>
     </div>
     <div class="vads-u-font-weight--bold">
       Latest versions of Safari

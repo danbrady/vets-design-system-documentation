@@ -1,40 +1,29 @@
 ---
-layout: default
+layout: documentation
 permalink: /foundation/layout/flexbox-grid
 has-parent: /foundation/layout/
 title: Flexbox grid
+intro-text: The flexbox grid is another option for creating grid-based layouts with the additional features that flexbox provides. 
 tags: Columns, Nesting grids, Layout grid
-anchors:
-  - anchor: Grid elements
-  - anchor: Auto-sizing columns
-  - anchor: Fixed columns
-  - anchor: How to nest grids
-  - anchor: Responsive grid
 ---
 
-# Flexbox grid
-
-<div class="va-introtext" markdown="1">
-  The flexbox grid is another option for creating grid-based layouts with the additional features that flexbox provides. You can apply more flexbox properties by using the [flexbox utility](../utilities/flexbox).
-</div>
-
-{% include _site-on-this-page.html %}
+You can apply more flexbox properties by using the [flexbox utility](../utilities/flexbox).
 
 ## Grid elements
 
-In addition to the Flexbox grid, the CSS library uses a 12-column, responsive, flexbox grid to provide structure and align content.
+In addition to the Flexbox grid, the CSS Library uses a 12-column, responsive, flexbox grid to provide structure and align content.
 
 The grid consists of three distinct pieces:
 
-- **Container**. There are two types of containers. The standard container, using the class name `vads-l-grid-container`, centers the content and provides a max width of `1000px`. To use a grid container that uses the full width of the page, use `vads-l-grid-container--full` instead.
+- **Container**. There are two types of containers. The standard container, using the class name `vads-grid-container`, centers the content and provides a max width of `1000px`. To use a grid container that uses the full width of the page, use `vads-grid-container--full` instead.
 - **Row**: Enables the flexbox layout.
 - **Columns**: By default, columns will automatically adjust to evenly fit into a row. Using the responsive prefixes, they can collapse into different lockups at different breakpoints in order provide flexibility in the design across different viewports. There are a maximum of 12 columns in each row.
 
-Unlike the [float grid](float-grid), you will need to use the [padding utility](../utilities/padding) and/or the [margin utility](../utilities/margins) in to provide column spacing. This is intentional and it allows the grid to accept more design options than the standard float grid.
+Unlike the float grid, you will need to use the [padding utility](../utilities/padding) and/or the [margin utility](../utilities/margins) in to provide column spacing. This is intentional and it allows the grid to accept more design options than the standard float grid.
 
 ## Auto-sizing columns
 
-Columns without a set width will automatically layout with equal widths. For example, below are four instances of `vads-l-col` which are each automatically 25% wide. The columns will automatically wrap when they don't fit a single row.
+Columns without a set width will automatically layout with equal widths. For example, below are four instances of `vads-grid-col` which are each automatically 25% wide. The columns will automatically wrap when they don't fit a single row.
 
 <div class="site-showcase">
 {% include_relative html/flexbox-grid-basic.html %}
@@ -44,7 +33,7 @@ Columns without a set width will automatically layout with equal widths. For exa
 
 ## Fixed columns
 
-Column widths can be set using a modifier value on the `vads-l-col` class, such as `vads-l-col--3`. The number at the end of the class name represents the number of columns out of a 12-column grid. The total of those numbers in any `vads-l-row` should equal 12. If the total is more than 12, the grid will collapse into separate rows.
+Column widths can be set using a modifier value on the `vads-grid-col` class, such as `vads-grid-col-3`. The number at the end of the class name represents the number of columns out of a 12-column grid. The total of those numbers in any `vads-grid-row` should equal 12. If the total is more than 12, the grid will collapse into separate rows.
 
 <div class="site-showcase">
 {% include_relative html/flexbox-grid-basic2.html %}

@@ -5,9 +5,8 @@ redirect_from:
   - /components/featured-content
 title: "Summary box"
 aka: Featured content
-status: use-deployed
 intro-text: "The summary box component helps Veterans quickly identify must-read information on a page. Use this component to highlight a small chunk of the most important information on a page, like eligibility criteria or coverage under a particular VA benefit."
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=1192%3A4460&mode=design&t=vNilCSI60pQBiKkM-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=1192%3A4460&mode=design&t=vNilCSI60pQBiKkM-1
 uswds-v3: default
 anchors:
   - anchor: Examples
@@ -17,6 +16,8 @@ anchors:
   - anchor: Content considerations
   - anchor: Accessibility considerations
 web-component: va-summary-box
+web: true
+mobile-app: false
 ---
 
 ## Examples
@@ -27,7 +28,11 @@ web-component: va-summary-box
 
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/summary-box/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/summary-box/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional guidance for VA
 
@@ -92,4 +97,8 @@ Code for this component is shown in Storybook. Follow the link provided in [exam
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/summary-box/#accessibility-summary-box">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/summary-box/#accessibility-summary-box"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>

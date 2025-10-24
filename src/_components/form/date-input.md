@@ -4,7 +4,7 @@ permalink: /components/form/date-input
 has-parent: /components/form/
 title: Date input
 research-title: Form controls
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1360%3A82038&mode=design&t=TiJHClaf3VQ6wU6B-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1360%3A82038&mode=design&t=TiJHClaf3VQ6wU6B-1
 intro-text: "Use the date input component to help users enter a date they would know or a date they can approximate."
 status: use-deployed
 anchors:
@@ -14,6 +14,8 @@ anchors:
   - anchor: Code usage
   - anchor: Accessibility considerations
 web-component: va-date
+web: true
+mobile-app: false
 ---
 
 ## Examples
@@ -28,7 +30,7 @@ web-component: va-date
 {% include storybook-preview.html story="components-va-date--with-hint-text" link_text="va-date with hint text" %}
 
 ### With a custom required message
-{% include storybook-preview.html story="components-va-date--custom-required-message" link_text="va-date with a custom required message" %}
+{% include storybook-preview.html story="components-va-date--custom-required-message" link_text="va-date with a custom required message" height="275px" auto_resize=false  %}
 
 ### Default with error
 {% include storybook-preview.html story="components-va-date--error" link_text="va-date with error" %}

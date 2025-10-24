@@ -103,21 +103,30 @@ Component tokens are scoped to a specific component and represent decisions spec
 
 ## Tokens
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/foundation/color-palette">
-  Colors
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/foundation/color-palette"
+  text="Colors"
+  type="secondary"
+  class="vads-u-display--block"
+></va-link-action>
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/foundation/typography#typography-tokens">
-  Font
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/foundation/typography#typography-tokens"
+  text="Font"
+  type="secondary"
+  class="vads-u-display--block"
+></va-link-action>
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/foundation/spacing-units#spacing-tokens">
-  Spacing
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/foundation/spacing-units#spacing-tokens"
+  text="Spacing"
+  type="secondary"
+  class="vads-u-display--block"
+></va-link-action>
 
 ### Forthcoming design tokens
 
-These tokens are not available in Figma nor are they yet represented in the CSS library. However, they do provide values that teams can coalesce around that will soon be available as tokens in our component-library.
+These tokens are not available in Figma nor are they yet represented in the CSS Library. However, they do provide values that teams can coalesce around that will soon be available as tokens in our component-library.
 
 <va-accordion bordered="false" uswds="true">
   <va-accordion-item header="Elevation" id="second" uswds>

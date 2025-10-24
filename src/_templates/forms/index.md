@@ -7,15 +7,39 @@ redirect_from:
   - /patterns/forms/
 contributors: "Shawna Hein, Jonathan Nelson, Liz Lantz, Christian Valla, Becca Walsh, Chris Valarida, Peggy Gannon"
 status: use-deployed
-intro-text: "Common form structures and designs used on VA.gov"
+intro-text: "Templates and patterns for creating accessible, Veteran-centered forms on VA.gov"
+anchors:
+  - anchor: When to use forms
+  - anchor: The structure of a form
+  - anchor: How to design and build
+  - anchor: Content considerations
+  - anchor: Accessibility considerations
 sub-pages:
   - sub-page: How to apply
   - sub-page: Introduction
+  - sub-page: Form step
+  - sub-page: Form step - minimal
   - sub-page: Review
   - sub-page: Confirmation
+  - sub-page: Accessibility guidelines
 ---
 
 {% include _site-in-this-section.html %}
+
+## When to use forms
+
+Use form templates when you need to collect information from Veterans, their families, or other users. Forms are appropriate for:
+
+- **Benefit applications** where users need to provide personal information, documentation, or make eligibility determinations
+- **Multi-step processes** that require saving progress and allowing users to return later
+- **Data collection** that requires validation, error handling, and confirmation
+- **Authenticated experiences** where users need to review or update their information
+
+### When not to use forms
+
+- For simple feedback or contact requests (use [Ask users for feedback]({{ site.baseurl }}/patterns/ask-users-for/feedback) pattern instead)
+- For one-time actions like downloads or quick selections (use buttons or simple interactions)
+- For search or filtering interfaces (use [Search]({{ site.baseurl }}/components/search-input) components)
 
 ## The structure of a form
 
@@ -29,102 +53,149 @@ sub-pages:
 
 ## Patterns
 
-All of the patterns in the "[Ask users for...]({{ site.baseurl }}/patterns/)" section of our patterns are form patterns for collecting information from users. However, the following patterns for collecting information more generically may be of particular interest:
+All of the patterns in the "[Ask users for...]({{ site.baseurl }}/patterns/)" section are form patterns for collecting information from users. The following patterns are especially useful for form design:
 
-* [Ask users for a single response]({{ site.baseurl }}/patterns/ask-users-for/a-single-response)
-* [Ask users for multiple responses]({{ site.baseurl }}/patterns/ask-users-for/multiple-responses)
-* [Help users to check answers]({{ site.baseurl }}/patterns/help-users-to/check-answers)
+### Essential form patterns
+* [Ask users for a single response]({{ site.baseurl }}/patterns/ask-users-for/a-single-response) - One question per page approach
+* [Ask users for multiple responses]({{ site.baseurl }}/patterns/ask-users-for/multiple-responses) - How to collect multiple responses to the same set of questions
+* [Help users to check answers]({{ site.baseurl }}/patterns/help-users-to/check-answers) - Review page guidance
+* [Help users to keep a record of submitted information]({{ site.baseurl }}/patterns/help-users-to/keep-a-record-of-submitted-information) - Confirmation page guidance
 
-## Components
+### Supporting patterns
+* [Help users to complete a sub-task]({{ site.baseurl }}/patterns/help-users-to/complete-a-sub-task) - Breaking down complex processes
+* [Help users to know when their information is prefilled]({{ site.baseurl }}/patterns/help-users-to/know-when-their-information-is-prefilled) - Managing prefilled data
 
-* [Form elements]({{ site.baseurl }}/components/form)
-* [Additional info]({{ site.baseurl }}/components/additional-info)
-* [Error messages]({{ site.baseurl }}/content-style-guide/error-messages)
+## How to design and build
 
-## Additional topics
+Before designing your form, understand the complete digitization process by reviewing the [Guide to Digitizing VA Forms](https://depo-platform-documentation.scrollhelp.site/developer-docs/a-guide-to-digitizing-va-forms). This guide covers stakeholder alignment, requirements gathering, and project planning that should happen before design work begins.
 
-* [Form labels]({{ site.baseurl }}/content-style-guide/form-labels)
-* [Hint text]({{ site.baseurl }}/components/form/#hint-text)
-* [Title tags]({{ site.baseurl }}/content-style-guide/title-tags)
+### Design principles for VA forms
 
-### Cross-Page Topics
+When designing forms, follow these principles to create Veteran-centered experiences:
 
-#### Legalese vs. Plain Language
+1. **One thing per page**: Focus on a single question or decision to reduce cognitive load
+2. **Progressive disclosure**: Only show what users need for the current step
+3. **Clear progress indication**: Help users understand where they are and what's next
+4. **Save progress automatically**: Never make users lose their work
+5. **Plain language**: Use words Veterans understand, not government jargon
 
-(Reference: [https://dsva.slack.com/archives/C0NGDDXME/p1579133450082200](https://dsva.slack.com/archives/C0NGDDXME/p1579133450082200))
+### Design for accessibility
 
-In general, our online forms should not be framed as a 1:1 mapping of the paper form - in other words, what we are building are data collection mechanisms for the forms themselves, and therefore do not need approval in the same way the forms themselves do. Therefore, the language does not need to map 1:1 to the paper forms. In general, voice and tone strategy on our online pages should use plain language.
+Forms must be accessible from the design phase. When creating form designs:
 
-A [legal memo](https://obamawhitehouse.archives.gov/sites/default/files/omb/inforeg/pra_flexibilities_memo_7_22_16_finalI.pdf) addresses this situation:
+* **Add accessibility annotations**: Use [accessibility annotations]({{ site.baseurl }}/accessibility/accessibility-annotations) to communicate semantic information, heading levels, and interaction requirements to developers
+* **Consider keyboard navigation**: Design clear focus states and logical tab order
+* **Plan for assistive technology**: Ensure form labels, instructions, and error messages work with screen readers
+* **Design for cognitive accessibility**: Use clear visual hierarchy and minimize cognitive load
+
+For detailed implementation guidance, see [Form accessibility guidelines]({{ site.baseurl }}/templates/forms/accessibility-guidelines).
+
+### Building forms with the Forms Library
+
+All VA.gov forms should be built using the [VA Forms Library](https://depo-platform-documentation.scrollhelp.site/developer-docs/va-forms-library-form-config-options), which provides:
+
+* **Standardized form functionality**: Built-in progress saving, validation, and navigation
+* **Accessibility features**: Focus management, keyboard navigation, and screen reader support
+* **Consistent user experience**: Uniform styling and behavior across all VA forms
+* **Developer efficiency**: Pre-built components and patterns reduce development time
+
+The Forms Library handles complex functionality like routing between form steps, data validation, and submission processing, allowing teams to focus on the specific questions and content for their form.
+
+### Components used in forms
+
+Forms combine multiple components to create complete experiences:
+
+#### Core form elements
+* [Form elements]({{ site.baseurl }}/components/form) - Input fields, dropdowns, checkboxes, and radio buttons
+* [Form labels]({{ site.baseurl }}/components/form/label) - Clear, helpful labels for all form fields
+* [Error messages]({{ site.baseurl }}/content-style-guide/error-messages) - Helpful guidance when things go wrong
+
+#### Supporting components  
+* [Additional info]({{ site.baseurl }}/components/additional-info) - Expandable help content
+* [Progress bar - Segmented]({{ site.baseurl }}/components/form/progress-bar-segmented) - Show progress through multi-step forms
+* [Button pairs]({{ site.baseurl }}/components/button/button-pair) - Navigation between form steps
+
+### Page templates for forms
+
+Each stage of a form uses specific templates designed for that purpose:
+
+* **[How to apply page]({{ site.baseurl }}/templates/forms/how-to-apply)** - Pre-form information and eligibility
+* **[Introduction page]({{ site.baseurl }}/templates/forms/introduction)** - What to expect and how to prepare
+* **[Form step pages]({{ site.baseurl }}/templates/forms/form-step)** - Standard and minimal layouts for collecting information
+* **[Review page]({{ site.baseurl }}/templates/forms/review)** - Let users check their answers before submitting
+* **[Confirmation page]({{ site.baseurl }}/templates/forms/confirmation)** - What happens next after submission
+
+## Content considerations
+
+Follow all of the content guidelines listed within the VA.gov content style guide when writing for forms.
+
+[Review the complete VA.gov content style guide]({{ site.baseurl }}/content-style-guide/)
+
+
+#### Use plain language
+* Use familiar words instead of government terms
+* Explain unfamiliar concepts before asking questions about them
+
+#### Be conversational
+* Address users as "you"
+* Use active voice: "Enter your address" not "Address should be entered"
+* Ask questions the way a helpful person would ask them
+
+#### Provide context
+* Explain why you're asking for information
+* Tell users what will happen with their information
+* Use hint text to clarify what you're asking for
+
+#### Be consistent
+* Use the same words for the same concepts throughout the form
+* Follow the [VA.gov word list]({{ site.baseurl }}/content-style-guide/word-list) for standard terms
+* Match the language users see in their VA benefits and services
+
+### Legal language vs. plain language
+
+In general, our online forms should not be framed as a 1:1 mapping of the paper form. 
+
+A legal memo from the Office of Management and Budget addresses this situation:
 
 > “As long as the underlying, approved form is not altered and the interactive materials essentially collect the same information, then OIRA considers these applications a nonsubstantive change to an already approved collection, and would encourage their development.”
 
-For legal or regulatory content, however, we need to use judgment and be careful. Sometimes this might mean providing a plain language summary and the legal language in parentheses for reference. We’ve sometimes used this approach on the public website unauthenticated pages. For tools and authenticated experiences, you can use things like the “learn more” dropdown or modals to have plain language versions alongside legal definitions.
+Source: [Office of Management and Budget [OMB] Memorandum M-16-17, 2016, p. 5, Section III (PDF)](https://obamawhitehouse.archives.gov/sites/default/files/omb/inforeg/pra_flexibilities_memo_7_22_16_finalI.pdf)
 
-You may need to get PRA approval or other kinds of approval if you are tweaking the form itself and/or adding fields. 
+You may need to get PRA approval or other kinds of approval if you are tweaking the form itself and/or adding fields.
 
-<!--
-## The Form Design Process
+While forms sometimes require legal or regulatory language, prioritize plain language whenever possible. You can:
 
-There are a few documents that have been written to help PMs and their teams structure how and when they do things when embarking on a form project for VA.gov: 
+* Provide plain language summaries with legal text in [Additional info]({{ site.baseurl }}/components/additional-info) components
+* Use parenthetical explanations: "Dependents (spouse, children, or other family members you support)"
+* Link to detailed legal definitions rather than including them inline
 
-* [VA.gov form design process](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/design/design-resources/form-design-process.md)
-* [Content process for modernizing VA.gov forms](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/content/form-content-process.md)
+## Accessibility considerations
 
-This document will not attempt to rewrite those documents, however, we will provide a few tips per practice area:
+Forms must be accessible to all users, including those who use screen readers, keyboard navigation, or other assistive technologies.
 
-### Product Managers
-* Make sure you understand the full picture before your team gets in too deep
-   * What are the business needs?
-   * What are the stakeholder needs?
-   * What fields are actually required? What is optional? Based on user research, are there any fields we can drop?
-   * Do we already know of any potentially triggering / invasive / confusing questions that are required? Do we really need to have those fields? If so, what kind of things can we say to explain why they are there? 
-   * Start discussions on security & privacy with the platform security team (POC effective 12/2022: Mike Chelen)
-   * Document these answers in a Product Outline.
-* If you'd like to think about analytics for your form, Platform Analytics also has [documentation for adding analytics for forms](https://depo-platform-documentation.scrollhelp.site/analytics-monitoring/google-analytics-data-dictionary)
+### Why accessible forms matter for Veterans
 
-### Designers
-* User research discovery
-   * What other tools / sources are participants using to perform the task(s)? E.g. VSOs, phone calls, etc.
-   * What VA and non-VA resources are participants using to learn about these things? E.g. social media groups, etc.
-   * What does the user want to get out of this form?
-* Competitive Analysis
-   * What are others doing in a similar space that we should be looking to for inspiration?
-* If there is an already existing form of some kind:
-   * How are users currently using the form and process? What can we learn from that?
-   * Take all the fields on the form and think about them as individual components. Then group them together logically to start determine how your chapters and pages are going to be laid out
-   * Some folks have found it helpful to create a text-based outline of the form fields - to do some of the high level grouping and organization before getting into Sketch -- something like this: [21P-527EZ Pension Outline](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/products/pension/pension-outline.md)
-      * An excel spreadsheet could also be helpful for this
-   * Build a wireflow or flow diagrams to show at a high level how things are going to work
-   * Create your final wireframes
-* Incorporate accessibility considerations
-   * Focus management
-   * Hierarchy/labelling
+Approximately 1 in 4 Veterans live with a service-connected disability. When forms aren't accessible, they create barriers that can prevent Veterans from accessing the benefits and services they've earned.
 
-### Developers
-* Make sure you read up on and understand form builder:
-   *  Fill out a few forms on staging.va.gov to get a feel for the capabilities of the forms system.
-   *  [Watch the zoom video of a quick demo Chris Valarida gave to the design team](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/teams/vsa/design/va-forms-informal-for-designers.mp4) in Feb. 2020. He goes over an example JSON object used by react-jsonschema-form (RJSF), and toggles between it and the rendered UI, so developers may find it useful.
-   *  The forms documentation is not perfect. Read through VSA's informal notes at https://github.com/department-of-veterans-affairs/va.gov-team/tree/master/teams/vsa/engineering/forms-system. The documents there will be written from the perspective of developers consuming the library, so it may contain tips, gotcha's, and known issues. 
-   *  If you have determined that you need to implement custom behavior or appearance that the existing components do not support out-of-the-box, FIRST confirm with your design team that the feature is needed and cannot be implemented an alternate way that fits within the limitations of the existing forms framework. The va<span/>.gov Forms System (VAFS) is built on top of the VA's fork of react-jsonschema-form (RJSF), so if customization is required (or if you need a deeper understanding that goes beyond the tutorial), then you will need to dig one level deeper:
-      *  Read the overview [Creating custom fields and widgets](https://depo-platform-documentation.scrollhelp.site/developer-docs/VA-Forms-Library---How-to-create-custom-fields-and-widgets.2115567784.html), THEN
-      *  Consult the lower-level RJSF documentation on the [GitHub Repository for the VA fork of RJSF](https://github.com/department-of-veterans-affairs/react-jsonschema-form). Although you may run into other web sites that cover RJSF, stick with the documentation used specifically by the VA fork.
+### Essential accessibility requirements
 
-* Make sure you start early when investigating data flows. Where will your data be coming from? Where will it be going?
-   * Note: enlist your PM to help you find answers to this 
-* Read up on and understand all APIs and associated data models. Think about and capture in your discovery tickets:
-   * Performance considerations of the APIs
-   * The data fields that are available and what “real data” we are actually getting
-* Security considerations
-   * Make sure you understand if any of your data needs special security measures
-* When starting to build your form, the generally accepted practice on VA.gov is outlined below:
-   * Use the form system to build the initial structure / scaffolding of your form (e.g. introduction page, middle pages, confirmation page) and merge that scaffolding to master
-   * Insert all needed data fields on the front-end to have them there. The designer will later help guide the developer on how the fields will be “chunked”, styled, etc.
-   * Make sure to merge often so you can get frequent reviews and code isn’t hoarded and the all reviewed at once
-   * If possible, start with pages or flows that may be difficult
-      * Some things aren’t possible using the forms system; it’s best to find out if your form has any of those as soon as possible so the design can be reconsidered if needed
-   * While your form’s schema is in heavy development, keep it in vets-website to avoid updating the vets-json-schema dependency on every branch; once it’s settled down, move it to vets-json-schema
-   * Make sure to be regularly communicating with your designer(s) to ensure you understand requirements, and collaborate with them on coming up with tweaks to the designs if necessary
-* **For QA**, there exist some [e2e test helpers for testing forms](https://depo-platform-documentation.scrollhelp.site/developer-docs/end-to-end-testing-with-cypress). The code is fairly nicely commented though but there isn't a lot of documentation about how to use them as far as we know. 
-* **For Accessibility**, you will need to build comprehensive e2e tests for these form views, and that includes axe checks for every page. Ideally, these happen just before navigating away from a page, not immediately after loading the page. That way we get a good feel for all the content, and hidden content like progressive questions are surfaced. [More guidance can be found here](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/accessibility/guidance/staging-review-processes.md).
--->
+* **Proper form labels**: Every form field must have a clear, descriptive label
+* **Keyboard navigation**: All form functionality must work with keyboard-only navigation
+* **Focus management**: Users must know where they are when navigating between form steps
+* **Error handling**: Error messages must be clearly associated with the relevant form fields
+* **Screen reader support**: All form information must be announced clearly to assistive technology users
+
+### Accessibility resources
+
+* [Form accessibility guidelines]({{ site.baseurl }}/templates/forms/accessibility-guidelines) - Detailed technical requirements for building accessible forms
+* [Focus management]({{ site.baseurl }}/accessibility/focus-management) - Comprehensive focus guidance
+* [Accessibility annotations]({{ site.baseurl }}/accessibility/accessibility-annotations) - Tools for communicating accessibility requirements to developers
+
+
+## Related resources
+
+### Implementation guidance
+* [Guide to Digitizing VA Forms](https://depo-platform-documentation.scrollhelp.site/developer-docs/a-guide-to-digitizing-va-forms) - Complete process for form digitization projects
+* [Fieldsets, legends, and labels]({{ site.baseurl }}/components/form/#fieldsets-legends-and-labels) - Proper form markup
+* [Content for form labels]({{ site.baseurl }}/content-style-guide/form-labels) - Writing effective labels
+* [Hint text guidelines]({{ site.baseurl }}/components/form/#hint-text) - Providing helpful context

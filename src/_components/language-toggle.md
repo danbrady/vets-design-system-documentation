@@ -4,8 +4,10 @@ title: Language toggle
 intro-text: "The language toggle is our way of providing translated versions of select pages on va.gov."
 github-title: va-language-toggle
 research-title: va-language-toggle
-figma-link: https://www.figma.com/design/afurtw4iqQe6y4gXfNfkkk/VADS-Component-Library?node-id=10077-912&t=hljp6A4V60A0rDms-1
-status: use-with-caution-available
+figma-link-web: https://www.figma.com/design/afurtw4iqQe6y4gXfNfkkk/VADS-Component-Library?node-id=10077-912&t=hljp6A4V60A0rDms-1
+web-component: va-language-toggle
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -13,32 +15,35 @@ anchors:
   - anchor: Content considerations
   - anchor: Accessibility considerations
   - anchor: Related
+  - anchor: Component checklist  
 ---
 
 ## Examples
 
 ### Default
 
-{% include component-example.html alt="The language toggle with the spanish option selected." file="/images/components/language-toggle/spanish.png" caption="The language toggle allows users to click links to load the same page which has been translated to one of three languages." %}
+The language toggle provides a series of links that load the page in one of three languages.
 
-#### Page context
+{% include storybook-preview.html story="components-va-language-toggle--default" link_text="Language toggle" %}
 
-{% include component-example.html alt="Some, but not all, of the content on a page will be translated." file="/images/components/language-toggle/page-context.png" caption="Translated content appears in the body of the page, in the side navigation, and in the breadcrumbs of the page." %}
+### Two Languages
+
+{% include storybook-preview.html story="components-va-language-toggle--two-languages" link_text="Language toggle" %}
 
 ## Usage
 
 ### When to use Component name
 
-* **Presenting an option to switch between translated pages.**: Use this component when you want to provide the user a way to switch between translated versions of the same page.
+* **Presenting an option to switch between translated pages.** Use this component when you want to provide the user a way to switch between translated versions of the same page.
 
 ### When to consider something else
 
-* **Links to pages that don't match.**: Do not use this toggle to point to anything other than the corresponding page in the equivalent language.
+* **Links to pages that don't match.** Do not use this toggle to point to anything other than the corresponding page in the equivalent language.
 * **Other language options.** VA.gov supports the 3 languages identified in the toggle. Do not add or remove from those 3 languages.
 
 ### How this component works
 
-* **Provides navigation to the same page at a different URL.** The language toggle uses links to navigate the user to the same page, in a different language, and at a different URL. Currently, the language code does not match [ISO language codes](https://www.loc.gov/standards/iso639-2/php/code_list.php) but should conform in future. 
+* **Provides navigation to the same page at a language-specific URL.** The language toggle uses links to navigate the user to the same page, in a different language, and at a language-specific URL. Currently, the language code does not match [ISO language codes](https://www.loc.gov/standards/iso639-2/php/code_list.php) but should conform in future.
   * Example English (default) URL: [https://www.va.gov/health-care/covid-19-vaccine/](https://www.va.gov/health-care/covid-19-vaccine/)
   * Example Spanish URL: [https://www.va.gov/health-care/covid-19-vaccine-esp/](https://www.va.gov/health-care/covid-19-vaccine-esp/)
   * Example Tagalog URL: [https://www.va.gov/health-care/covid-19-vaccine-tag/](https://www.va.gov/health-care/covid-19-vaccine-tag/)
@@ -47,7 +52,7 @@ anchors:
 
 * **Navigates to the same page in a different language.** When selected, the language toggle brings the user to the alternate language version of the page they were on.
 * **Body content, side navigation, breadcrumbs, and any alerts are translated.** Currently (01/2024), the expectation is that the following sections of the page are translated:
-  * Main content of the page 
+  * Main content of the page
   * The parent and sibling pages within the [side navigation menu]({{ site.baseurl }}/components/sidenav)
   * The current page title in the [Breadcrumbs]({{ site.baseurl }}/components/breadcrumbs)
   * Any [Alert]({{ site.baseurl }}/components/alert) shown to a user
@@ -73,7 +78,7 @@ The component appears 32px below the "In this section" menu and 24px above the h
 
 ## Content considerations
 
-* **Link is in native language.** Links in this component should be in the native language. For example, "Español". Note: Sometimes the word is the same in both English and the target language, for example "Tagalog".
+* **Link is in native language.** Links in this component should be in the native language. For example, "Español". **Note**: Sometimes the word is the same in both English and the target language, for example "Tagalog".
 
 ## Accessibility considerations
 
@@ -85,5 +90,4 @@ The component appears 32px below the "In this section" menu and 24px above the h
 * [Breadcrumbs]({{ site.baseurl }}/components/breadcrumbs)
 * [Sidenav]({{ site.baseurl }}/components/sidenav)
 
-<!-- TODO: Once we build this component, add the checklist -->
-<!-- include _component-checklist.html component_name=page.web-component -->
+{% include _component-checklist.html component_name=page.web-component %}

@@ -8,10 +8,10 @@ status: use-deployed
 sub-pages:
   - sub-page: Autosave
   - sub-page: Checkbox
+  - sub-page: Combo box
   - sub-page: Date input
   - sub-page: Memorable date
   - sub-page: File input
-  - sub-page: Input message
   - sub-page: Label
   - sub-page: Need help?
   - sub-page: Penalty notice
@@ -21,11 +21,13 @@ sub-pages:
   - sub-page: Radio button
   - sub-page: Select
   - sub-page: Statement of truth
+  - sub-page: Telephone Input
   - sub-page: Text input
   - sub-page: Textarea
 anchors:
   - anchor: Usage
   - anchor: Accessibility considerations for all form elements
+  - anchor: Fieldsets, legends, and labels 
   - anchor: Error handling
   - anchor: How to group form controls
   - anchor: Hint text
@@ -41,20 +43,22 @@ anchors:
   <p>
     View documentation for <a href="{{ site.forms_system_link }}">building forms using the Forms Library</a>.
   </p>
+  <p>
+    For complete form flow guidance, see <a href="{{ site.baseurl }}/templates/forms/">Form templates</a> and <a href="{{ site.baseurl }}/templates/forms/accessibility-guidelines">Form accessibility guidelines</a>.
+  </p>
 </va-summary-box>
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/form/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/form/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ## Accessibility considerations for all form elements
 
 {% include a11y/do-not-disable-buttons.md %}
 
-## How to group form controls
-
-* Group each set of thematically related controls in a `fieldset` element. Use the `legend` element as a heading within each one. The `fieldset` and `legend` elements make it easier for screen reader users to navigate the form.
-* Use a single legend for fieldset (this is required). One example of a common use of `fieldset` and `legend` is a question with radio button options for answers. The question text and radio buttons are wrapped in a fieldset, with the question itself being inside the `legend` tag.
-* Embed multiple fieldsets and legends for more complex forms if the form is not broken in separate chapters.
-* Keep your form inputs and labels arranged vertically along the same Y axis. This approach is ideal, from an accessibility standpoint, because of limited vision that makes it hard to scan from right to left.
+{% include a11y/fieldsets-legends-labels.md %}
 
 ## Error handling
 

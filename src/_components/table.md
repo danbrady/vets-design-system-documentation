@@ -3,20 +3,21 @@ layout: component
 title: Table
 intro-text: "The table component organizes data into columns and rows."
 research-title: Table
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1879%3A677&mode=design&t=B9iLKTUu5y9dFqd4-1
-status: use-best-practice
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1879%3A677&mode=design&t=B9iLKTUu5y9dFqd4-1
 uswds-v3: default
 web-component: va-table
+web: true
+mobile-app: false
 anchors:
-  - anchor: Examples - v3
-  - anchor: Examples - v1
+  - anchor: Examples
   - anchor: Usage
   - anchor: Code usage
   - anchor: Content considerations
   - anchor: Accessibility considerations
+  - anchor: Component checklist
 ---
 
-## Examples - v3
+## Examples
 
 ### Borderless table (default)
 
@@ -34,21 +35,24 @@ anchors:
 
 {% include storybook-preview.html height="410px" story="uswds-va-table--with-pagination" link_text="va-table with pagination" %}
 
-## Examples - v1
+### Sortable
 
-### Responsive stacked table (v1 Default)
-
-{% include storybook-preview.html height="400px" story="components-va-table--default" link_text="va-table v1 along with additional variations"  %}
+{% include storybook-preview.html height="410px" story="uswds-va-table--sortable" link_text="Sortable va-table" %}
 
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/table/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/table/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional guidance for VA
 
 #### Using the standard table
 
 * **Wrap instead of truncate content.** This reduces confusion in case headers start with the same word.
+* **Use monospace fonts for content that requires precise alignment in tables.** This includes numerical data that can be tabulated and, in some cases, medical terminology. See [Typography]({{ site.baseurl }}/foundation/typography) for detailed guidance on when monospace fonts are appropriate. 
 
 #### Using responsive stacked tables
 
@@ -57,13 +61,10 @@ anchors:
 * **Limit characters in headings** Column headings shouldn’t exceed 60 characters. Follow content guidelines on [how to abbreviate dates and time]({{ site.baseurl }}/content-style-guide/dates-and-numbers), as well as, other [abbreviations and acronyms]({{ site.baseurl }}/content-style-guide/abbreviations-and-acronyms)
 * **Tables should have a maximum of 5 columns** Very large tables with lots of columns are difficult to use. This problem only gets exacerbated on smaller screens. Show only what users really need.  
 
-#### Choosing between variations
-
-The v3 default table is a standard table and does not offer the responsive stacked variation. Also, the v3 table does not yet offer a sortable option. Thus if the data in your table requires the responsive stacked table at mobile viewport widths, or if your table currently is sortable, you may stick with the v1 version of this component until we reach feature parity.
-
 * **Use the responsive list view table when you need to present a list of information in an itemized way.** A responsive stacked table collapses at narrow widths for better readability on small screens.
 * **Use the standard table when users have to compare rows and columns** as the table layout remains the same on smaller screens.
   * For comparison tables, avoid horizontal scrolling and limit the number of columns to 3 or fewer. All column heading labels should total no more than 60 characters.
+* **Avoid using numerical data in a responsive stacked table.** All data in a stacked table should be left aligned.
 
 {% include component-docs.html component_name=page.web-component %}
 
@@ -73,4 +74,15 @@ The v3 default table is a standard table and does not offer the responsive stack
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/table/#accessibility-accordion">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/table/#accessibility-accordion"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
+
+### Additional guidance for VA
+
+- Tables should be used to display tabular data, which is structured data made up of rows and columns. A table allows the information to be easily interpreted by visually associating row and column headers.
+- _Do not_ use tables for layout purposes. Tables should only be used for data that has inherent relationships, not for design purposes.
+
+{% include _component-checklist.html component_name=page.web-component %}

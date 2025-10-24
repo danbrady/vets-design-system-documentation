@@ -5,10 +5,11 @@ permalink: /components/alert/alert-expandable/
 has-parent: /components/alert/
 github-title: va-alert-expandable
 intro-text: A minimized alert style that can be used to alert a user to relevant information on the page that is not prompted by their own action. This component combines the Additional Info component with the Background-Color only Alert variation color schemes.
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=35%3A146&mode=design&t=J32RmU6Fjbjuh9bD-1
-status: use-with-caution-candidate
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=35%3A146&mode=design&t=J32RmU6Fjbjuh9bD-1
 contributors: Leyda Hughes (VSA Facilities Team)
 web-component: va-alert-expandable
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -23,15 +24,15 @@ anchors:
 
 ### Default (Informational)
 
-{% include storybook-preview.html story="components-va-alert-expandable--default" link_text="va-alert-expandable" %}
+{% include storybook-preview.html story="components-va-alert-expandable--default" link_text="va-alert-expandable" height="210px" auto_resize=false %}
 
 ### Warning alert
 
-{% include storybook-preview.html story="components-va-alert-expandable--warning" link_text="va-alert-expandable" %}
+{% include storybook-preview.html story="components-va-alert-expandable--warning" link_text="va-alert-expandable" height="210px" auto_resize=false %}
 
 ### Success alert
 
-{% include storybook-preview.html story="components-va-alert-expandable--success" link_text="va-alert-expandable" %}
+{% include storybook-preview.html story="components-va-alert-expandable--success" link_text="va-alert-expandable" height="210px" auto_resize=false %}
 
 ## Usage
 
@@ -45,6 +46,7 @@ anchors:
 
 * **User feedback.** Use the [Alert]({{ site.baseurl }}/components/alert) component when responding to an action taken by a user such as submitting a form.
 * **Clarifying background information.** Use the [Additional info]({{ site.baseurl }}/components/additional-info) component when clarifying outcomes for an input or a form question as well as providing background information. Keep in mind that Alert - Expandable should warrant an alert and be used sparingly. The value of any type of alert is diminished if the page is littered with alerts of equal weight.
+* **Showing an error.** Errors should never be hidden. They should only appear as a result of a user action, and always be visible to the user. The error text should be brief and clear, eliminating the need for it to be collapsed. Consider using a standard or slim variation of [Alert]({{ site.baseurl }}/components/alert) if there is an error.
 
 ### Behavior
 
@@ -79,8 +81,6 @@ anchors:
 
 The alert was tested as part of a usability study with 9 participants. The alert was used to display copay charges referred to the Department of Treasury that needed to be resolved ASAP, so it was pertinent that the alert was immediately noticeable by Veterans.
 
-[View the component in the prototype here.](https://preview.uxpin.com/361636c369f65453b4880d1445911c4d9b869349#/pages/140005948/simulate/no-panels?mode=i)
-
 #### Findings
 - The alert was often the first thing Veterans noticed when arriving on the page
 - Some clicked on the alert to read more about the referred charge while others moved on to looking at other sections of the prototype
@@ -89,6 +89,6 @@ The alert was tested as part of a usability study with 9 participants. The alert
 ## Related
 
 * [Additional info]({{ site.baseurl }}/components/additional-info)
-* [Alert]({{ site.baseurl}}/components/alert/alert)
+* [Alert]({{ site.baseurl}}/components/alert)
 
 {% include _component-checklist.html component_name=page.web-component %}

@@ -1,14 +1,19 @@
 ---
 layout: component
 permalink: /components/form/file-input
+redirect_from:
+  - /components/form/file-input-multiple
 has-parent: /components/form/
 title: File input
 intro-text: "File input allows users to attach files, one at a time, to be uploaded."
 research-title: Form controls
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1360%3A85508&mode=design&t=TiJHClaf3VQ6wU6B-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1360%3A85508&mode=design&t=TiJHClaf3VQ6wU6B-1
+github-discussion-url: https://github.com/department-of-veterans-affairs/vets-design-system-documentation/discussions/4609
 status: use-with-caution-available
 uswds-v3: default
 web-component: va-file-input
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -19,6 +24,7 @@ anchors:
 ---
 
 This guidance covers two web components:
+
 * Use the [File input variation](https://design.va.gov/storybook/?path=/story/uswds-va-file-input--default) for uploads that accept a single file.
 * Use the [File input multiple variation](https://design.va.gov/storybook/?path=/story/uswds-va-file-input-multiple--default) for uploads that accept multiple files.
 
@@ -32,15 +38,11 @@ NOTE: Storybook does not allow for showing components in a particular state. Thu
 
 ### Default - Single file - Populated
 
-{% include component-example.html alt="Populated file upload with a single file" file="/images/components/file-input/file-input-default-populated-single.png" caption="File input component (uswds-va-file-input--default) showing a file attached for upload." class="x2" reverse="true" %}
-
-### Default - Multiple files - Populated singular
-
-{% include component-example.html alt="Populated multiple file upload with a single file" file="/images/components/file-input/multiple-file-input-default-populated-single.png" caption="File input component (uswds-va-file-input-multiple--default) showing the first of multiple files attached for upload." class="x2" reverse="true" %}
+{% include storybook-preview.html story="uswds-va-file-input--file-uploaded" link_text="uswds-va-file-input--file-uploaded" %}
 
 ### Default - Multiple files - Populated multiple
 
-{% include component-example.html alt="Populated multiple file upload" file="/images/components/file-input/multiple-file-input-default-populated.png" caption="File input component (uswds-va-file-input-multiple--default) showing multiple files attached for upload." class="x2" reverse="true" %}
+{% include storybook-preview.html story="uswds-va-file-input-multiple--files-uploaded" link_text="uswds-va-file-input-multiple--files-uploaded" %}
 
 ### Required
 
@@ -53,6 +55,32 @@ NOTE: Storybook does not allow for showing components in a particular state. Thu
 ### Accepts any kind of image
 
 {% include storybook-preview.html height="270px" story="uswds-va-file-input--accepts-any-kind-of-image" link_text="va-file-input that accepts any kind of image" reverse="true" %}
+
+### Accepts File Password
+
+<va-alert slim="true" status="warning">
+  This component does not check if a file is encrypted. This logic is handled in a shared Forms System utility. See this guide for more information: <a href="https://depo-platform-documentation.scrollhelp.site/developer-docs/checking-if-an-uploaded-pdf-is-encrypted">Checking if an uploaded PDF is encrypted</a>
+</va-alert>
+
+{% include storybook-preview.html height="270px" story="uswds-va-file-input--accepts-file-password" link_text="va-file-input that accepts file password" reverse="true" %}
+
+
+
+### Max file size
+
+{% include storybook-preview.html height="270px" story="uswds-va-file-input--with-max-file-size" link_text="va-file-input with max file size" reverse="true" %}
+
+### Read only
+
+{% include storybook-preview.html height="270px" story="uswds-va-file-input--read-only" link_text="va-file-input in read only state" reverse="true" %}
+
+### Read only with additional inputs
+
+{% include storybook-preview.html height="270px" story="uswds-va-file-input--read-only-with-additional-inputs" link_text="va-file-input in read only state with additional inputs" reverse="true" %}
+
+### With percent uploaded
+
+{% include storybook-preview.html height="270px" story="uswds-va-file-input--with-percent-uploaded" link_text="va-file-input showing upload progress" reverse="true" %}
 
 ### Error Message
 
@@ -76,17 +104,18 @@ Change the label to any H1 through H6 header size.
 
 {% include component-example.html alt="Additional form inputs" file="/images/components/file-input/additionalForm.png" caption="File input when an additional form is needed to complete the file upload" class="x2" reverse="true" %}
 
-### Multiple files
-
-{% include component-example.html alt="Multiple files" file="/images/components/file-input/multipleFiles.png" caption="File input when multiple files are uploaded" class="x2" reverse="true" %}
-
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/file-input/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/file-input/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional guidance for VA
 
 * **One file per input.** The file input supports uploading a single file multiple times, but does not support selecting multiple files at a single time. This component only supports one file upload at a time. The reason for this is some users might not know how to select multiple files in a file browser. Additionally, iOS does not allow multiple-file selection using the Files app. Thus, the VA implementation of this component does not deviate from our [current pattern]({{ site.baseurl }}/patterns/ask-users-for/files#review) for handling multiple file uploads by prompting for each file with a new file input component.
+* **Slotted content considerations.** For multiple file uploads, break up a pattern that is asking for a number of additional inputs for a file upload so that it instead uses the [Multiple responses / List & Loop pattern]({{ site.baseurl }}/patterns/ask-users-for/multiple-responses). This pattern reduces cognitive load for users and provides a better overall user experience.
 * **Files pattern guidance.** Follow the [files pattern guidance]({{ site.baseurl }}/patterns/ask-users-for/files) for how to include the file input in a form.
 
 ### How this component works
@@ -105,9 +134,11 @@ Change the label to any H1 through H6 header size.
 * When using a single file input the [error message is placed above the file input area](#error-message). If the file input supports multiple files then the error message is placed within the file input card.
 * To display a custom error message, pass text into the `error` property.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/components/form/#error-handling">
-  View form error handling for additional guidance
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/components/form/#error-handling"
+  text="View form error handling for additional guidance"
+  type="secondary"
+></va-link-action>
 
 {% include component-docs.html component_name=page.web-component %}
 
@@ -117,6 +148,10 @@ Change the label to any H1 through H6 header size.
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/file-input#accessibility-checkbox">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/file-input#accessibility-checkbox"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
 
 {% include _component-checklist.html component_name=page.web-component %}

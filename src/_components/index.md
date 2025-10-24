@@ -2,6 +2,7 @@
 layout: default
 title: Components
 index: true
+
 ---
 
 # Components
@@ -26,33 +27,35 @@ All teams must now be using the v3 versions of our web-components. The Design Sy
 
 [Instructions are available for developers]({{ site.baseurl }}/about/developers/using-web-components#uswds-v1-to-v3-migration) to be able to migrate components onto their v3-based version.
 
-<va-alert
-  close-btn-aria-label="Close notification"
-  status="warning"
-  visible
-  uswds
->
-  <h2 slot="headline">
-    v1 components have now been deprecated
-  </h2>
-  <div>
-    <p className="vads-u-margin-y--0">
-      If your team is still using a v1 component, instances will be flagged in the Collab Cycle and may be considered launch blocking.
-    </p>
-  </div>
-</va-alert>
+### Governance rules for using components
 
-### Governance rules for using v3-based components
+To ensure consistency and quality across our applications, all teams must follow these rules when using design system components:
 
-v3-based versions of the components are designed to sit alongside our current v1 based components and the foundational elements of the Design System. Teams must use the new versions of our web-components and following these rules:
+* Do not use v1 components. Only use v3 components in your applications and pages. **Using a v1 component will be considered a launch-blocking issue and must be fixed before your team can launch to production.**
+  * The only exception is if there is no v3 equivalent available.
+* If your team is using a user interface element outside of the [design system web components](https://design.va.gov/storybook/), that is coded to look and function like a design system web component, that is considered an imposter component and will be listed as a violation at your Staging Review. Any user interface element that can use a design system web component should use it. **Any use of an imposter component will be considered a launch-blocking issue and must be fixed before your team can launch to production.**
+  * Exceptions to this are default links and buttons. HTML elements `<button>` and `<a>`, with the appropriate classes added for styling consistency, may be used. This only applies to elements styled as **[Button - Default]({{ site.baseurl }}/components/button/)** and **[Link - Default]({{ site.baseurl }}/components/link)** variations. HTML elements styled as any other variation will be considered imposter components.
 
-* Do not mix and match different versions (v1 vs. v3) of the same component on the same page. For example, if you were to use the v3-based version of the [accordion component]({{ site.baseurl }}/components/accordion) on a page, that version must be used throughout that page (and ideally throughout your application as soon as possible).
-* Do not mix and match v1 and v3 based [form components]({{ site.baseurl }}/components/form/) in the same application flow. For example, if you were to use the v3-based version of the radio button component on the first step in an application, that version must be used on all subsequent steps throughout the flow.
+Examples of design system components can be found in [Storybook](https://design.va.gov/storybook) or in this section (components are listed in the side navigation).
 
 {% include components-patterns-templates.md %}
+
+## Mobile app vs. Web components
+
+Components in the VA Design System support different platforms and devices. Each component page displays a platform badge at the top to indicate where the component can be used:
+
+- <span class="usa-label usa-label--platform">Web</span> - The component is available for web browsers on desktop, tablet, and mobile devices. This includes the VA.gov website and other web-based applications.
+
+- <span class="usa-label usa-label--platform">Mobile app only</span> - The component is only available in the VA Health and Benefits native mobile application.
+
+- <span class="usa-label usa-label--platform">Web, Mobile app</span> - The component is available on both web and mobile app platforms.
 
 ## Create or update a component
 
 If you have a new component, or an update to an existing component, consider contributing back to the design system. Reach out to the Design System Team if you have questions.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/about/contributing-to-the-design-system">Create or update a component</a>
+<va-link-action
+  href="{{ site.baseurl }}/about/contributing-to-the-design-system"
+  text="Create or update a component"
+  type="secondary"
+></va-link-action>

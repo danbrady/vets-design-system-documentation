@@ -5,7 +5,7 @@ has-parent: /templates/forms/
 title: Review
 status: use-deployed
 intro-text: Allows the user to review information and make edits if necessary.
-figma-link: https://www.figma.com/file/4A3O3mVx4xDAKfHE7fPF1U/VADS-Templates%2C-Patterns%2C-and-Forms?type=design&node-id=2988%3A66785&mode=design&t=0y4ua4v9DIeIvkhX-1
+figma-link: https://www.figma.com/design/4A3O3mVx4xDAKfHE7fPF1U/VADS-Templates--Patterns--and-Forms?m=auto&node-id=2694-27118&t=trebutugV9jwUgJ1-1
 anchors:
   - anchor: About
   - anchor: Example
@@ -28,7 +28,7 @@ The Review page consists of:
 4. [Review steps or chapters - Collapsed](#review-steps-or-chapters---collapsed)
 5. [Penalty notice](#penalty-notice)
 6. [Privacy agreement](#privacy-agreement)
-7. [Button pair](#button-pair)
+7. [Button group](#button-group)
 8. [Autosave](#autosave)
 9. [Finish application later](#finish-application-later)
 10. [Need help?](#need-help)
@@ -71,9 +71,9 @@ All accordions start out collapsed.
 
 [Privacy agreement]({{site.baseurl}}/components/form/privacy-agreement) component. This component is used unless a form requires a wet signature in which case this component is replaced by the [Ask users for signature]({{ site.basurl }}/patterns/ask-users-for/signature) pattern, wet signature variation.
 
-### Button pair
+### Button group
 
-[Button pair]({{site.baseurl}}/components/button/button-pair) contains a secondary button labeled “Back” and  primary button labeled "Submit application".
+[Button group]({{site.baseurl}}/components/button/button-group) contains a secondary button labeled “Back” and primary button labeled "Submit application".
 
 ### Autosave
 

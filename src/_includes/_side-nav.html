@@ -10,7 +10,7 @@
     {% assign sortedPages = include.section | sort: "title", "last" %}
     {% for p in sortedPages %}
         {% assign is-current = false %}
-        {% if p.url == page.url %}
+        {% if p.url == page.url or page.url == site.baseurl | append: p.permalink %}
           {% assign is-current = true %}
         {% endif %}
         {% assign open-accordion = false %}
@@ -19,18 +19,22 @@
         {% endif %}
         {% if p.layout != "iframe" %}
           {% unless p.index or p.has-parent %}
-            {% unless p.draft and (p.url != page.url) %}
+            {% unless p.draft == true and (p.url != page.url) %}
                 {% assign slug = p.title | slugify %}
                 {%- if p.sub-pages -%}
                   <ul class="usa-accordion">
                     <li>
-                      <button class="usa-accordion-button" aria-expanded="{%- if open-accordion == true -%}true{%- else -%}false{%- endif -%}" aria-controls="{{p.title | slugify }}">{{p.title}}</button>
+                      <button class="usa-accordion-button" aria-expanded="{%- if open-accordion == true -%}true{%- else -%}false{%- endif -%}" aria-controls="{{p.title | slugify }}">
+                        {{p.title}}
+                        <va-icon icon="add" size="3"></va-icon>
+                        <va-icon icon="remove" size="3"></va-icon>
+                      </button>
                       <div id="{{ slug }}" class="usa-accordion-content" aria-hidden="{%- if open-accordion == true -%}false{%- else -%}true{%- endif -%}">
                         <ul class="usa-sidenav-list">
                           <li {% if is-current == true %}class="active-level"{%- endif -%}>
                             <a class="{% if is-current == true %}usa-current{%- endif -%}" href="{{site.baseurl}}{{ p.url }}">
                               {% if p.inner-title %}{{ p.inner-title }}{% else %}{{ p.title }}{%- endif -%}
-                              {%- if p.status -%}
+                              {%- if p.web-component or p.status -%}
                                 {%- include _site-side-nav-status.html components=sortedPages component=p.title -%}
                               {%- endif -%}
                             </a>
@@ -44,7 +48,7 @@
                               {% assign is-current = false %}
                             {% endif %}
                           <li>
-                            <a class="{% if is-current == true %}usa-current{%- endif -%}" href="{{p.permalink }}{{ item.sub-page | slugify }}">
+                            <a class="{% if is-current == true %}usa-current{%- endif -%}" href="{{site.baseurl}}{{p.permalink }}{{ item.sub-page | slugify }}">
                               {{ item.sub-page }}
                               {%- if include.name == 'components' -%}
                                 {%- include _site-side-nav-status.html components=sortedPages component=item.sub-page parent=p.title -%}

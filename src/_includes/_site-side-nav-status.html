@@ -7,7 +7,26 @@
 {% endif %}
 
 {% if component %}
-  {% assign status = component.status %}
+  {% assign component_tag = component.web-component %}
+
+  {% if component_tag %}
+    {% assign maturity = site.data.component-maturity[component_tag] %}
+    {% assign status-category = maturity.maturityCategory | default: "dont_use" %}
+    {% assign status-title = maturity.maturityLevel | replace: '_', '-' | default: "proposed" %}
+    {% assign display-category = status-category %}
+
+    {% if status-category == "dont_use" %}
+      {% assign display-category = "Don't use" %}
+    {% elsif status-category == "caution" %}
+      {% assign status-category = "use-with-caution" %}
+      {% assign display-category = "Use with caution" %}
+    {% endif %}
+
+    {% assign status = status-category | append: '-' | append: status-title %}
+    {% assign status = status | downcase | slugify %}
+  {% else %}
+    {% assign status = component.status %}
+  {% endif %}
 {% elsif include.pattern-status %}
   {% assign status = include.pattern-status %}
 {%- endif -%}
@@ -15,7 +34,7 @@
 {% if status %}
   {% for scale in site.data.maturity-scale.scale %}
     {%- if scale.name == status -%}
-    <i class="fas {{scale.symbol}} site-sidenav-status site-sidenav-status--{{status}}" aria-label="{{ scale.category }} {{ scale.title }}"></i>
+    <va-icon size="2" icon="{{scale.symbol}}" class="site-sidenav-status site-sidenav-status--{{status}}" aria-label="{{ scale.category }} {{ scale.title }}"></va-icon>
     {%- endif -%}
   {% endfor %}
 {%- endif -%}

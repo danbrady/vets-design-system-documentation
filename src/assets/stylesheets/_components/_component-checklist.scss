@@ -19,45 +19,55 @@
 
 .site-component-checklist-score {
   margin-right: units(.25);
+  vertical-align: middle;
 
-  &--is-true {
+  va-icon {
+    vertical-align: middle;
+  }
+
+  &--is-true[icon="check_circle"] {
     color: $color-green;
   }
 
   &--is-false {
-    color: $color-orange;
+    color: $vads-color-orange;
   }
 
   &--is-na {
-    color: $color-gray-light;
+    background-color: $color-gray-lightest;
+    color: $color-base;
+    padding: 0 .25rem;
   }
 }
 
 .site-component-checklist-legend {
-  @include media($small-desktop-screen) {
+  @include media($desktop) {
     margin-top: units(1);
   }
 
-  @include media($small-desktop-screen) {
+  @include media($desktop) {
     margin-top: units(2);
   }
 
   &__title {
-    @include media($small-desktop-screen) {
+    @include media($desktop) {
       margin: 0;
     }
   }
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    gap: units(2);
   }
 
   &__item {
-    width: 33.33%;
-    max-width: 125px;
-    margin-right: units(1);
+    display: flex;
+    align-items: center;
+    gap: units(0.5);
+    white-space: nowrap;
   }
 }

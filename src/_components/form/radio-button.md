@@ -5,10 +5,12 @@ has-parent: /components/form/
 title: Radio button
 research-title: Form controls
 intro-text: Radio buttons allow users to select exactly one choice from a group.
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1373%3A86693&mode=design&t=h9BoxMWwcHe2DhUd-1
-status: use-deployed
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1373%3A86693&mode=design&t=h9BoxMWwcHe2DhUd-1
+status: use-best-practice
 uswds-v3: default
 web-component: va-radio
+web: true
+mobile-app: true
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -19,49 +21,73 @@ anchors:
 
 ## Examples
 
-### Default
+### Web
+
+#### Default
 
 {% include storybook-preview.html height="200px" story="uswds-va-radio--default" link_text="va-radio" %}
 
-### Tile
+#### Tile
 
 {% include storybook-preview.html height="350px" story="uswds-va-radio--tile" link_text="va-radio tile" %}
 
-### Hint text
+#### Hint text
 
 {% include storybook-preview.html height="250px" story="uswds-va-radio--hint" link_text="va-radio with hint text" %}
 
-### Label header
+#### Label header
 
 {% include storybook-preview.html height="200px" story="uswds-va-radio--label-header" link_text="va-radio with label header" %}
 
-### On background
+#### On background
 
 {% include storybook-preview.html height="100px" story="uswds-va-radio--on-background" link_text="va-radio on background" %}
 
-### Forms pattern single
+#### Forms pattern single
 
 {% include storybook-preview.html height="600px" story="uswds-va-radio--forms-pattern-single" link_text="va-radio forms pattern single" %}
 
-### Forms pattern multiple
+#### Forms pattern multiple
 
 {% include storybook-preview.html height="450px" story="uswds-va-radio--forms-pattern-multiple" link_text="va-radio forms pattern multiple" %}
 
-### Error
+#### Error
 
 {% include storybook-preview.html story="uswds-va-radio--error" link_text="va-radio error" %}
 
-### Forms pattern single error
+#### Forms pattern single error
 
 {% include storybook-preview.html height="600px" story="uswds-va-radio--forms-pattern-single-error" link_text="va-radio forms pattern single error" %}
 
-### Internationalization
+#### Internationalization
 
 {% include storybook-preview.html height="250px" story="uswds-va-radio--internationalization" link_text="va-radio internationalization" %}
 
+---
+
+### Mobile app
+
+#### Default
+
+{% include storybook-preview.html height="440px" story="radio-button--default" link_text="va-mobile_radio-button--default" is_mobile=true auto_resize=false %}
+
+#### Tile
+
+{% include storybook-preview.html height="400px" story="radio-button--tile" link_text="va-mobile_radio-button--tile" is_mobile=true auto_resize=false %}
+
+#### Error
+
+{% include storybook-preview.html height="500px" story="radio-button--error" link_text="va-mobile_radio-button--error" is_mobile=true auto_resize=false %}
+
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/radio-buttons/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/radio-buttons/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
+
+{% include content/select-options.md %}
 
 ### Choosing between variations
 
@@ -76,25 +102,40 @@ anchors:
 
 * Refer to the specific error examples above.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/components/form/#error-handling">
-  View form error handling for additional guidance
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/components/form/#error-handling"
+  text="View form error handling for additional guidance"
+  type="secondary"
+></va-link-action>
 
 ### Hint text
 
 * Refer to the [hint text example](#hint-text) above.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/components/form/label#hint-text">
-  View label hint text for additional guidance
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/components/form/label#hint-text"
+  text="View label hint text for additional guidance"
+  type="secondary"
+></va-link-action>
 
 {% include component-docs.html component_name=page.web-component %}
 
 ## Content considerations
 
-<a class="vads-c-action-link--blue" 
-href="https://design.va.gov/content-style-guide/bulleted-lists">Refer to our bulleted list guidance for punctuation and general considerations</a>
+<va-link-action
+  href="https://design.va.gov/content-style-guide/bulleted-lists"
+  text="Refer to our bulleted list guidance for punctuation and general considerations"
+  type="secondary"
+></va-link-action>
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/radio-buttons/#accessibility-radio-buttons">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/radio-buttons/#accessibility-radio-buttons"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
+
+## Privacy guidance 
+ 
+{% include content/privacy-selection-fields.md %}

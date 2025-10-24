@@ -5,8 +5,10 @@ has-parent: /components/form/
 title: Autosave
 intro-text: "Informs the user that we will, and have, automatically saved their progress in a form flow."
 research-title: Form controls
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1350%3A24511&mode=design&t=TiJHClaf3VQ6wU6B-1
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1350%3A24511&mode=design&t=TiJHClaf3VQ6wU6B-1
 status: use-deployed
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -44,7 +46,7 @@ anchors:
 
 ### Placement
 
-* This component appears after the [Button pair]({{ site.baseurl }}/components/button/button-pair) on a form page and before the link to "Finish this application later" on the authenticated variation of the [Form - Step page]({{ site.baseurl }}/templates/forms/#step-form-pages).
+* This component appears after the [Button pair]({{ site.baseurl }}/components/button/button-group) on the authenticated variation of the [Form - Step page]({{ site.baseurl }}/templates/forms/#step-form-pages).
 
 ## Code usage
 
@@ -53,7 +55,7 @@ Code for this component is shown in the [examples](#examples).
 ## Content considerations
 
 * Message content can be found in the example above or in [engagement messages]({{ site.baseurl }}/content-style-guide/error-messages/engagement).
-* This message is to be accompanied by text that reads: "We'll save your application on every change." and appears just below the [Progress bar - Segmented]({{ site.baseurl }}/components/progress-bar-segmented) component on [Form - Step pages]({{ site.baseurl }}/templates/forms/#step-form-pages).
+* This message is to be accompanied by text that reads: "We'll save your application on every change." and appears just below the [Progress bar - Segmented]({{ site.baseurl }}/components/form/progress-bar-segmented) component on [Form - Step pages]({{ site.baseurl }}/templates/forms/#step-form-pages).
 
 ## Accessibility considerations
 

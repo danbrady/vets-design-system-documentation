@@ -2,10 +2,11 @@
 layout: component
 title: "Process list"
 intro-text: "The process list, also known as the subway map, is used in a static informational context to describe the process to apply for a benefit or to provide tracking information to a user where they are in a given process."
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=35%3A169&mode=design&t=J32RmU6Fjbjuh9bD-1
-status: use-deployed
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Example-Library?type=design&node-id=35%3A169&mode=design&t=J32RmU6Fjbjuh9bD-1
 uswds-v3: default
 web-component: va-process-list
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -35,7 +36,11 @@ anchors:
 
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/process-list/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/process-list/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional guidance for VA
 
@@ -60,7 +65,7 @@ The Process list appears after a start form link on the form [Introduction page]
 
 ### Instances of this component in production
 
-{% include component-example.html alt="An example of the process list component on an Education benefits application." file="/images/components/process-list/education-apply-for-education-benefits-application-1995-introduction-2022.png" caption="The Education benefits application form 1995 uses a process list on the introduction page of the application." width="50%" %}
+{% include component-example.html alt="An example of the process list component on an Education benefits application." file="/images/components/process-list/VEAP-benefits-2024.png" caption="The VEAP benefits application form uses a process list on the introduction page." width="50%" %}
 
 {% include component-docs.html component_name=page.web-component %}
 
@@ -69,13 +74,19 @@ The Process list appears after a start form link on the form [Introduction page]
 * **List headings should start with a verb.** Examples include "Prepare", "Apply", "Review", etc.
 * **Make headings clear and concise.** You can always write more content in paragraphs and other HTML elements below the heading.
 * **Make process step content clear and concise.** Process list should not be a container for many other components and text. Use plain language and briefly explain the step in the process.
+* **Status eyebrow should match context.** When using the optional status eyebrow, make sure the status matches the context of the process list.  The provided statuses are pending, active, complete.
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/process-list/#accessibility-process-list">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/process-list/#accessibility-process-list"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional accessibility considerations for VA
 
 * **Don't use headings alone.** Each step should have both a heading and content that helps describe the step in more detail.
+* **Use eyebrow status for update.** When using a process list that has a status update the eyebrow feature is required for accessibility. 
 
 {% include _component-checklist.html component_name=page.web-component %}

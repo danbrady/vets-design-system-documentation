@@ -1,19 +1,9 @@
 ---
-layout: default
+layout: documentation
 title: Breakpoints
+intro-text: VA.gov uses media queries to support responsive design. It is constructed using a mobile-first approach, meaning that styles are written by default for mobile devices and scaled up for larger viewports.
 tags: media queries, media, responsive
-anchors:
-  - anchor: Names and values
-  - anchor: Sass mixins
 ---
-
-# Breakpoints
-
-<p class="va-introtext">
-  VA.gov uses media queries to support responsive design. It is constructed using a mobile-first approach, meaning that styles are written by default for mobile devices and scaled up for larger viewports.
-</p>
-
-{% include _site-on-this-page.html %}
 
 ## Names and values
 
@@ -43,7 +33,7 @@ $nav-width: 702px;
 
 ## Sass mixins
 
-The CSS library includes the `@media` mixin to make it easier for developers to create breakpoints in their styles.
+The CSS Library includes the `@media` mixin to make it easier for developers to create breakpoints in their styles.
 
 ```scss
 @include media($medium-screen) {
@@ -71,7 +61,7 @@ You may place the `@media` mixin inside of a selector or places selectors inside
     margin: units(2);
   }
 
-  @include media($large-screen) {
+  @include media($desktop-lg) {
     margin: units(3);
   }
 }

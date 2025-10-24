@@ -2,7 +2,8 @@
 name: "1. \U0001F534 Bug report"
 about: Something in the Design System is not working as expected
 title: ''
-labels: platform-design-system-team, bug
+labels: bug, platform-design-system-team
+assignees: ''
 
 ---
 
@@ -24,11 +25,18 @@ labels: platform-design-system-team, bug
 
 ## Reproducing
 
-- Formation version:
+- CSS Library version:
 - Device: (e.g. iPhone 8, Macbook)
 - Browser: (e.g. Firefox, IE 11)
 
-Steps to reproduce:
+**URL(s) where this bug occurs**
+
+-
+-
+-
+
+
+**Steps to reproduce:**
 
 1.
 2.

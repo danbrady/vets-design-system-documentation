@@ -15,6 +15,7 @@ anchors:
   - anchor: Usage
   - anchor: Examples
   - anchor: How to design and build
+  - anchor: Code Usage
   - anchor: Content considerations
   - anchor: Accessibility considerations
 ---
@@ -27,72 +28,81 @@ anchors:
 
 ### When not to use this pattern
 
-* **Don’t ask if it does not affect the delivery of a service.** You should only ask users to upload documents if absolutely necessary.
+* **Don’t ask for a file if does not affect the delivery of a service.** You should only ask users to upload documents if absolutely necessary.
 
 ## Examples
 
 ### Default
 
-{% include component-example.html alt="The default state of file upload." file="/images/patterns/ask-users-for/files/0955-default.png" caption="File upload in the default state before a user has interacted with the upload button." class="x2" %}
-
-### Loading
-
-{% include component-example.html alt="The loading state of file upload." file="/images/patterns/ask-users-for/files/file-upload-loading.png" caption="The loading state of file upload uses the Progress bar - Activity component to give feedback to the user that the system is uploading their file." width="50%" %}
+{% include component-example.html alt="The default state of file upload." file="/images/patterns/ask-users-for/files/form-upload-default.png" caption="File upload in the default state before a user has interacted with the file input component." class="x2" %}
 
 ### Review
 
-{% include component-example.html alt="The review state of file upload." file="/images/patterns/ask-users-for/files/0955-review.png" caption="The review state of file upload includes a card with the file name and an option to delete the file." class="x2" %}
-
-#### Review with PDF password option
-
-{% include component-example.html alt="The review state of file upload with an option of providing a password to a file." file="/images/patterns/ask-users-for/files/0955-pdf-password-added.png" caption="The review state of file upload can allow a user to provide a password to a password-protected file." class="x2" reverse="true" %}
+{% include component-example.html alt="The review state of file upload." file="/images/patterns/ask-users-for/files/form-upload-review.png" caption="The review state of file upload includes a card with the file name and options to change or delete the file." class="x2" %}
 
 ### Delete
 
-{% include component-example.html alt="The delete state of file upload." file="/images/patterns/ask-users-for/files/0955-modal-detail.png" caption="The review state of file upload includes a card with the file name and an option to delete the file." class="x2" %}
-
-### Examples in production
-
-{% include component-example.html alt="File upload in the 10182 form." file="/images/patterns/ask-users-for/files/10182-file-upload.png" caption="The process to request a board appeal includes the ability to upload files." class="x2" %}
-
-{% include component-example.html alt="File upload review in the 10-10CG form." file="/images/patterns/ask-users-for/files/10-10cg-review.png" caption="The application for the program of comprehensive assistance for family caregivers, form 10-10CG, features an Alert - warning with additional explanation." class="x2" %}
+{% include component-example.html alt="The delete state of file upload." file="/images/patterns/ask-users-for/files/form-upload-delete.png" caption="A modal is displayed confirming the destructive action of deleting the uploaded file." class="x2" %}
 
 ## How to design and build
 
 ### Layout details
 
-Use the [File input](https://design.va.gov/components/form/file-input) component along with the following content placed above it:
+Use the [File input]({{ site.baseurl }}/components/form/file-input) component along with the following content placed above it:
 
-* Header
-* Instructions on what file(s) to upload
-* Bullet list of allowed file types and sizes
+* **Header** that clearly describes what file to upload
+* **Instructions** explaining what file(s) to upload and why they're needed
+* **Bullet list** of allowed file types and maximum file sizes
 
-Avoid allowing batch file uploads. Batch uploads are not mobile-friendly and can invite user and/or technical errors.
+**Important:** Avoid allowing batch file uploads. Batch uploads are not mobile-friendly and can create user experience and technical issues. Instead, use multiple individual file input components when you need users to upload several files.
 
 ### How this pattern works
 
-#### Default
+We've updated the [File input]({{ site.baseurl }}/components/form/file-input) component to encapsulate this pattern. Upgrade to the latest file input component to get the current functionality.
 
-The File input component default state uses a secondary button and label placed in close proximity beneath the document upload instructions. When the user clicks the upload button a browser window will open to allow them to navigate to and select their file.
+* **List allowed file types and sizes above the File input component.** This helps prevent errors. Most VA forms accept PDF, JPG, JPEG, and PNG files.
+* **Provide clear instructions.** Tell users exactly what document to upload and why it's needed for their application.
+* **Validate file uploads and provide clear error messages.** Review [feedback messages]({{ site.baseurl }}/content-style-guide/error-messages/feedback) in the Messages dictionary for file upload success and error messages.
 
-#### Loading
+## Code usage
 
-The upload button will be replaced by a [gray card]({{ site.baseurl }}/components/card) with the [Progress bar - Activity]({{ site.baseurl }}/components/progress-bar) component to indicate the progress of the document upload. The user will see the name of the file and have the option to cancel the upload.
+<p>
+<va-link-action
+  href="https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/forms-system/src/js/web-component-patterns/fileInputMultiplePattern.jsx"
+  text="Multifile input pattern in forms library"
+  type="secondary"
+></va-link-action>
+</p>
 
-#### Review
+<p>
+<va-link-action
+  href="https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/platform/forms-system/src/js/web-component-patterns/fileInputPattern.jsx"
+  text="Single File input pattern in forms library"
+  type="secondary"
+></va-link-action>
+</p>
 
-When a document has successfully uploaded, the card will display the uploaded file name in bold with an option to delete the file. Depending on the form, there may be a dropdown in the card to select the document type. If multiple files are allowed, the upload button will move beneath the card to give the user the option of adding more files one-by-one.
+<p>
+<va-link-action
+  href="https://github.com/department-of-veterans-affairs/vets-website/blob/main/src/applications/ds-v3-playground/pages/VaFileInputMultiple.jsx"
+  text="Multifile input as a standalone component"
+  type="secondary"
+></va-link-action>
+</p>
 
-#### Delete
+### Forms library validation
 
-When a user triggers an action to remove or delete an upload file a modal confirming their action is presented. Within the modal the user can confirm and continue or cancel their action. This prevents accidental removal of the file which is an action that cannot otherwise be easily undone (the user would have to repeat the uplaod process).
+The forms-system validates every file before upload for:
 
-#### Error
+* **Mime-type and file extension match** (e.g., prevents my-pdf.png)
+* **UTF encoding** to ensure proper file handling
+* **PDF encryption** - The forms library detects if a PDF is encrypted and, if so, prompts the user for a password. The password is required to send the file to the backend for decryption before form submission.
 
-{% include storybook-preview.html story="components-va-file-input--error-message#error-message" link_text="va-file-input--error-message" %}
+**Note:** If validation fails, an error message is sent to the component and displayed to the user.
 
-* **Help prevent error states by listing the types and sizes of files allowed _above_ the File input component.** The allowed file types depend on the form, though most forms accept pdf, jpg, jpeg, and png.
-* **Validate file uploads and provide actionable error messages.** Review [feedback messages]({{ site.baseurl }}/content-style-guide/error-messages/feedback) in the Messages dictionary for file upload success and error messages.
+### File submission
+
+The pattern handles the submission to the endpoint and returns a response if there is an error.
 
 ## Content considerations
 
@@ -100,7 +110,11 @@ When a user triggers an action to remove or delete an upload file a modal confir
 
 * **Consider the mobile experience.** Avoid using words like "scan" or "convert" in the file upload instructions.
 
+If your team needs help customizing the content of the component to address upload problems and user errors, contact the Content and IA centralized team for support.
+
+
 ## Accessibility considerations
 
 * **Do not italicize file type and size help text.** Long strings of italicized text can be difficult to read for some users with low vision or reading disabilities.
-* **Ask for confirmation when deleting files.** Destructive actions like deleting files should require two steps by users --- the initial button click, and then a confirmation. This helps prevent users from accidentally deleting a file with an unintentional click, and provides an extra prompt for screen reader users and screen magnification users who might not see the visual change when a file is removed.
+* **Ask for confirmation when deleting files.** Destructive actions like deleting files should require two steps by users — the initial button click, and then a confirmation. This helps prevent users from accidentally deleting a file with an unintentional click, and provides an extra prompt for screen reader users and screen magnification users who might not see the visual change when a file is removed.
+* **Provide clear error messages.** When file uploads fail, ensure error messages clearly explain what went wrong and how to fix the issue.

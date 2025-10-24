@@ -5,10 +5,12 @@ has-parent: /components/form/
 title: Text input
 intro-text: "Text input allows people to enter any type of text unless otherwise restricted."
 research-title: Form controls
-figma-link: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1377%3A95544&mode=design&t=h9BoxMWwcHe2DhUd-1
-status: use-deployed
+figma-link-web: https://www.figma.com/file/JDFpGLIojfuQwANXScQjqe/VADS-Component-Examples?type=design&node-id=1377%3A95544&mode=design&t=h9BoxMWwcHe2DhUd-1
+status: use-best-practice
 uswds-v3: default
 web-component: va-text-input
+web: true
+mobile-app: false
 anchors:
   - anchor: Examples
   - anchor: Usage
@@ -36,7 +38,7 @@ anchors:
 
 ### Autocomplete
 
-{% include storybook-preview.html story="uswds-va-text-input--autocomplete" link_text="va-text-input Autocomplete" %}
+{% include storybook-preview.html story="uswds-va-text-input--autocomplete" link_text="va-text-input Autocomplete" height="565px" auto_resize=false %}
 
 ### Hint Text
 
@@ -46,7 +48,7 @@ Also refer to the overall [form guidance]({{ site.baseurl }}/components/form#hin
 
 ### Inline Hint Text
 
-{% include storybook-preview.html story="uswds-va-text-input--with-inline-hint-text" link_text="va-text-input with inline Hint text" %}
+{% include storybook-preview.html story="uswds-va-text-input--with-inline-hint-text" link_text="va-text-input with inline Hint text" height="155px" auto_resize=false %}
 
 ### Additional Info
 
@@ -104,9 +106,15 @@ See [form error handling]({{ site.baseurl }}/components/form/#error-handling) fo
 
 ## Usage
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/text-input/">Refer to the U.S. Web Design System for usage guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/text-input/"
+  text="Refer to the U.S. Web Design System for usage guidance"
+  type="secondary"
+></va-link-action>
 
-### Choosing between variations
+### Additional guidance for VA
+
+#### Choosing between variations
 
 * **Required.** Indicates to the user that the text input field is required in order to submit the form.
 * **Pattern.** Allows for a pattern of characters to be required for the text input entry to be valid.
@@ -126,34 +134,45 @@ See [form error handling]({{ site.baseurl }}/components/form/#error-handling) fo
 * **Prefix and Suffix.** Allows an icon or text to be set as an input prefix and/or suffix. See [USWDS Input Prefix and Suffix](https://designsystem.digital.gov/components/input-prefix-suffix/) for additional guidance. 
 * **Widths.** Indicates to the user the expected length of text input by sizing the field relative to what is expected.
 
-### Errors
+#### Errors
 
 * Refer to the specific error examples above.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/components/form/#error-handling">
-  View form error handling for additional guidance
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/components/form/#error-handling"
+  text="View form error handling for additional guidance"
+  type="secondary"
+></va-link-action>
 
-### Hint text
+#### Hint text
 
 * Refer to the [hint text example](#hint-text) above.
 
-<a class="vads-c-action-link--blue" href="{{ site.baseurl }}/components/form/label#hint-text">
-  View label hint text for additional guidance
-</a>
+<va-link-action
+  href="{{ site.baseurl }}/components/form/label#hint-text"
+  text="View label hint text for additional guidance"
+  type="secondary"
+></va-link-action>
 
 {% include component-docs.html component_name=page.web-component %}
 
 {% include content/using-message-aria-describedby.md %}
 
-### Native Events
+#### Native Events
 
 * Native onInput and onBlur events are available on this component. They can be used by adding the event handler to your component and it will then listen to the event and respond accordingly when the event fires.
 
 ## Accessibility considerations
 
-<a class="vads-c-action-link--blue" href="https://designsystem.digital.gov/components/text-input/#accessibility-text-input">Refer to the U.S. Web Design System for accessibility guidance</a>
+<va-link-action
+  href="https://designsystem.digital.gov/components/text-input/#accessibility-text-input"
+  text="Refer to the U.S. Web Design System for accessibility guidance"
+  type="secondary"
+></va-link-action>
 
 ### Additional accessibility considerations for VA
 
 * **Avoid `placeholder` text.** Excluding our max characters variation (v1), avoid using placeholder text. Most browsers’ default rendering of placeholder text does not provide a high enough contrast ratio. Also, placeholder text is no longer visible once a user clicks into the field. Thus users will no longer have that text available when they need to review their entries. People who have cognitive or visual disabilities have additional problems with placeholder text.
+
+## Privacy guidance
+{% include content/privacy-open-text.md %}

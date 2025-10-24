@@ -1,22 +1,10 @@
 ---
-layout: default
+layout: documentation
 permalink: /foundation/utilities/border
 has-parent: /foundation/utilities/
 title: Border
-anchors:
-  - anchor: Border shorthand
-  - anchor: Border style
-  - anchor: Border color
-  - anchor: Responsive prefixes
+intro-text: Set width, style, and color of an item’s borders.
 ---
-
-# Border
-
-<div class="va-introtext" markdown="1">
-  Set width, style, and color of an item’s borders.
-</div>
-
-{% include _site-on-this-page.html %}
 
 ## Border shorthand
 
@@ -33,7 +21,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   %}
 
   <h3>Border on all sides</h3>
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.widths %}
       {% include border-example.html
         class="border"
@@ -43,7 +31,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h3>Border top</h3>
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.widths %}
       {% include border-example.html
         class="border-top"
@@ -53,7 +41,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h3>Border right</h3>
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.widths %}
       {% include border-example.html
         class="border-right"
@@ -63,7 +51,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h3>Border bottom</h3>
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.widths %}
       {% include border-example.html
         class="border-bottom"
@@ -73,7 +61,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h3>Border left</h3>
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.widths %}
       {% include border-example.html
         class="border-left"
@@ -97,7 +85,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
     css_property="border-style"
   %}
 
-  <div class="vads-l-row">
+  <div class="vads-grid-row">
     {% for item in site.data.borders.styles %}
       {% include border-example.html
         class="border-style"
@@ -121,7 +109,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   %}
 
   <h4>Base colors</h4>
-  <div class="vads-l-row vads-u-flex-direction--column">
+  <div class="vads-grid-row vads-u-flex-direction--column">
     {% for item in site.data.colors.primary %}
       {% include border-color-example.html
         name=item.name
@@ -131,7 +119,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h4>Grayscale</h4>
-  <div class="vads-l-row vads-u-flex-direction--column">
+  <div class="vads-grid-row vads-u-flex-direction--column">
     {% for item in site.data.colors.grayscale %}
       {% include border-color-example.html
         name=item.name
@@ -141,7 +129,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h4>Tertiary colors</h4>
-  <div class="vads-l-row vads-u-flex-direction--column">
+  <div class="vads-grid-row vads-u-flex-direction--column">
     {% for item in site.data.colors.tertiary %}
       {% include border-color-example.html
         name=item.name
@@ -151,7 +139,7 @@ The border shorthand utility provides border widths for all sides, as well as `t
   </div>
 
   <h4>Hub colors</h4>
-  <div class="vads-l-row vads-u-flex-direction--column">
+  <div class="vads-grid-row vads-u-flex-direction--column">
     {% for item in site.data.colors.hub %}
       {% include border-color-example.html
         name=item.name
