@@ -24,11 +24,20 @@ jobs:
       - name: Sanitize tag name
         run: |
           RAW_TAG="${{ github.event.inputs.tag_name }}"
-          SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-' | sed 's/^-*|-*$//g')
+          # Replace spaces with hyphens, remove unsafe characters
+          SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-')
+          # Collapse multiple hyphens into one
+          SAFE_TAG=$(echo "$SAFE_TAG" | sed 's/--*/-/g')
+          # Trim leading/trailing hyphens or dots
+          SAFE_TAG=$(echo "$SAFE_TAG" | sed 's/^[.-]*//; s/[.-]*$//')
+          # Ensure it's not empty
+          if [ -z "$SAFE_TAG" ]; then
+            echo "Error: sanitized tag is empty!"
+            exit 1
+          fi
           echo "RAW_TAG=$RAW_TAG" >> $GITHUB_ENV
           echo "SAFE_TAG=$SAFE_TAG" >> $GITHUB_ENV
           echo "Sanitized tag: $SAFE_TAG"
-
       - name: Create Git tag
         run: |
           # Check if tag already exists
