@@ -24,19 +24,25 @@ jobs:
       - name: Sanitize tag name
         run: |
           RAW_TAG="${{ github.event.inputs.tag_name }}"
+
           # Replace spaces with hyphens, remove unsafe characters
           SAFE_TAG=$(echo "$RAW_TAG" | tr '[:space:]' '-' | tr -cd '[:alnum:]._:-')
+
           # Collapse multiple consecutive special characters into single hyphen
           SAFE_TAG=$(echo "$SAFE_TAG" | sed 's/-\{2,\}/-/g; s/\.\{2,\}/./g; s/::\+/:/g; s/_\{2,\}/_/g')
+
           # Remove leading special characters
           SAFE_TAG=$(echo "$SAFE_TAG" | sed 's/^[-._:]*//g')
+
           # Remove trailing special characters
           SAFE_TAG=$(echo "$SAFE_TAG" | sed 's/[-._:]*$//g')
+
           # Ensure it's not empty
           if [ -z "$SAFE_TAG" ]; then
             echo "Error: sanitized tag is empty!"
             exit 1
           fi
+
           echo "RAW_TAG=$RAW_TAG" >> $GITHUB_ENV
           echo "SAFE_TAG=$SAFE_TAG" >> $GITHUB_ENV
           echo "Sanitized tag: $SAFE_TAG"
@@ -83,3 +89,4 @@ jobs:
             echo "No changes detected"
           else
             echo "has-changes=true"
+          fi
